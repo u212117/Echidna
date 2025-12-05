@@ -1,0 +1,112 @@
+:root{
+  --bg: #272727;
+  --text: #ffffff;
+}
+
+*{ box-sizing: border-box; }
+html,body{
+  height:100%;
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding: 40px 20px;
+}
+
+/* 標題 */
+.thank-title{
+  text-align:center;
+  line-height:1.2;
+  margin: 0 0 20px 0;
+  color: var(--text);
+  font-size: 20px;
+}
+
+/* 圖片區 */
+.image-wrap{
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* 回饋數量標籤（右上） */
+.count-badge{
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: rgba(0,0,0,0.45);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight:600;
+  font-size: 14px;
+  color: var(--text);
+  backdrop-filter: blur(4px);
+}
+
+/* 彈幕容器（覆蓋整個畫面） */
+.barrage{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 40;
+}
+
+/* 單一彈幕訊息 */
+.barrage-item{
+  position: absolute;
+  max-width: 40%;
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 6px 10px;
+  background: transparent; /* 底色撤掉 */
+  color: #ffeecc; /* 稍微偏白的暖色文字 */
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(0);
+  animation: appearMove 9s linear forwards;
+
+  /* 發光效果保留 */
+  text-shadow:
+    0 0 4px #ffeecc,
+    0 0 8px #ffdbaa,
+    0 0 12px #ffc988;
+}
+
+/* appearMove: 淡入 -> 緩慢飄移 -> 淡出 */
+@keyframes appearMove {
+  0% { opacity: 0; transform: translateY(0) scale(0.98); }
+  10% { opacity: 1; transform: translateY(-10px) scale(1); }
+  80% { opacity: 1; transform: translateY(-80px) scale(1); }
+  100% { opacity: 0; transform: translateY(-120px) scale(0.98); }
+}
+
+@media (max-width:600px){
+  .thank-title{ font-size:16px; }
+  .barrage-item{ font-size:14px; max-width:70%; }
+}
