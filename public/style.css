@@ -3,7 +3,7 @@
   --text: #ffffff;
 }
 
-/* 全頁面置中 */
+/* 全頁面 */
 html, body {
   height: 100%;
   margin: 0;
@@ -12,7 +12,7 @@ html, body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
 }
 
-/* wrapper 負責整個畫面置中 */
+/* wrapper 置中整個畫面（垂直 + 水平） */
 .wrapper {
   display: flex;
   justify-content: center; /* 水平置中 */
@@ -25,14 +25,14 @@ html, body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
+  align-items: center;        /* 水平置中 */
+  justify-content: center;    /* 垂直置中 */
+  width: 100%;                /* 改為 100% 確保水平置中 */
   max-width: 900px;
   gap: 20px;
 }
 
-/* 標題 */
+/* 標題文字 */
 .thank-title {
   text-align: center;
   line-height: 1.2;
@@ -46,6 +46,7 @@ html, body {
   position: relative;
   width: 90%;
   max-width: 900px;
+  margin: 0 auto;            /* 水平置中 */
   aspect-ratio: 16/9;
   display: flex;
   align-items: center;
