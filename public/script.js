@@ -1,5 +1,5 @@
 // public/script.js
-const POLL_INTERVAL = 5000; // 5 秒
+const POLL_INTERVAL = 60000; // 60 秒
 const IMAGE_THRESHOLDS = [0, 3, 10, 20, 35, 50];
 const IMAGE_PATHS = [
   'images/img0.jpg',
@@ -125,3 +125,4 @@ async function fetchStats() {
 
 fetchStats();
 setInterval(fetchStats, POLL_INTERVAL);
+
