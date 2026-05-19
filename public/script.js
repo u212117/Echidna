@@ -1,5 +1,5 @@
 // public/script.js
-const POLL_INTERVAL = 30000; // 30 秒
+const POLL_INTERVAL = 50000; // 30 秒
 const IMAGE_THRESHOLDS = [0, 3, 10, 20, 35, 50];
 const IMAGE_PATHS = [
   'images/img0.jpg',
